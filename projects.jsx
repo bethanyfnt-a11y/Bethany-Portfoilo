@@ -7,7 +7,7 @@ function ProjectPlaceholder({ project }) {
   return (
     <div className="ph" style={{ "--ph-color": project.color, color: project.accent }}>
       <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice"
-      style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}>
+      style={{ position: "relative", inset: 0, width: "100%", height: "100%" }}>
         <defs>
           <pattern id={`p-${project.id}`} width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M0 40 L40 0" stroke={project.accent} strokeWidth="0.6" opacity="0.3" />

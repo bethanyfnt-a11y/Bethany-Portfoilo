@@ -6,7 +6,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "soundEnabled": true,
   "trailDensity": "regular",
   "showSakuraTrail": true,
-  "themeOverride": "auto"
+  "themeOverride": "dark"
 }/*EDITMODE-END*/;
 
 // ---------- Hero background (sakura petals or stars) ----------

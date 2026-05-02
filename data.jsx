@@ -3,7 +3,7 @@
 const PROJECTS = [
   {
     id: "ello",
-    no: "01",
+    no: "No.01",
     title: "Ello",
     subtitle: "Home Café Branding",
     year: "2025",
@@ -32,12 +32,12 @@ const PROJECTS = [
   },
   {
     id: "wuwei",
-    no: "02",
+    no: "No.02",
     title: "無為",
     subtitle: "This book won't help you",
     year: "2025",
     role: "Editorial / Thesis",
-    color: "#1F1F1F",
+    color: "none",
     accent: "#B6FF3D",
     desc: "Graphic Design Thesis — an experimental book that resists self-help conventions. Recipient of three 2025 RGD Student Awards Honourable Mentions: Award for Storytelling, Award for Editorial Design, and Best in Show consideration.",
     challenge: "Translate the Daoist concept of wú wéi (effortless action) into a book object that lets the reader stop trying.",
@@ -46,11 +46,11 @@ const PROJECTS = [
     images: {
       hero: "assets/projects/wuwei/main.png",
       gallery: [
-        { src: "assets/projects/wuwei/main.png", span: 0, label: "Book cover" },
-        { src: "assets/projects/wuwei/bookmark set.png", span: 6, label: "bookmark set" },
-        { src: "assets/projects/wuwei/process book.png", span: 6, label: "process book" },
-        { src: "assets/projects/wuwei/matcha.png", span: 7, label: "Matcha & touchpoints" },
-        { src: "assets/projects/wuwei/icecream.png", span: 5, label: "Pet-friendly ice cream" },
+        { src: "assets/projects/wuwei/bookmark set.png", span: 4, label: "bookmark set" },
+        { src: "assets/projects/wuwei/main.png", span: 4, label: "Book cover" },
+        { src: "assets/projects/wuwei/process book.png", span: 4, label: "process book" },
+        { src: "assets/projects/wuwei/bookmark.gif", span: 6, label: "bookmark design" },
+        { src: "assets/projects/wuwei/Comp 1.gif", span: 6, label: "bookmark design" },
         { src: "assets/projects/wuwei/lineup.png", span: 6, label: "Shipping box" },
         { src: "assets/projects/wuwei/box.png", span: 6, label: "Full product line-up" },
         { src: "assets/projects/wuwei/brand-system.png", span: 12, label: "Brand strategy: when / where / why / how" },
@@ -76,7 +76,7 @@ const PROJECTS = [
   },
   {
     id: "blissful",
-    no: "04",
+    no: "No.04",
     title: "Blissful",
     subtitle: "Magazine",
     year: "2024",
@@ -106,7 +106,7 @@ const PROJECTS = [
   },
   {
     id: "goodday",
-    no: "06",
+    no: "No.06",
     title: "Good Day!",
     subtitle: "Mobile App",
     year: "2024",
