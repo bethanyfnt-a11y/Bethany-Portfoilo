@@ -415,11 +415,24 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .project-card .thumb.long { aspect-ratio: 4/5; }
 .project-card .thumb.poster { aspect-ratio: 2/3; }
 
-@media (max-width: 900px) {
-  .project-grid { grid-template-columns: repeat(6, 1fr); gap: 16px; }
-  .span-3,.span-4,.span-5 { grid-column: span 6; }
-  .span-6,.span-7,.span-8 { grid-column: span 6; }
+@media (max-width: 768px) {
+  .project-grid { grid-template-columns: repeat(8, 1fr); gap: 16px; }
+  .span-3,.span-4,.span-5 { grid-column: span 8; }
+  .span-6,.span-7,.span-8 { grid-column: span 8; }
+  
+  @media (max-width: 768px) {
+  .modal-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .modal-gallery .gph {
+    grid-column: 1 / -1 !important;
+  }
 }
+}
+
 
 /* Placeholder thumb art */
 .ph {
@@ -650,3 +663,4 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   display: block; font-size: 14px; font-family: var(--font-mono);
   letter-spacing: 0.2em; text-transform: uppercase; margin-top: 16px;
 }
+

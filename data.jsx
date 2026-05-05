@@ -27,6 +27,7 @@ const PROJECTS = [
         { src: "assets/projects/ello/brand-system.png", span: 12, label: "Brand strategy: when / where / why / how" },
       ]
     },
+    
     span: "span-7",
     aspect: "wide",
   },
@@ -39,8 +40,8 @@ const PROJECTS = [
     role: "Editorial / Thesis",
     color: "none",
     accent: "#B6FF3D",
-    desc: "Graphic Design Thesis — an experimental book that resists self-help conventions. Recipient of three 2025 RGD Student Awards Honourable Mentions: Award for Storytelling, Award for Editorial Design, and Best in Show consideration.",
-    challenge: "Translate the Daoist concept of wú wéi (effortless action) into a book object that lets the reader stop trying.",
+    desc: "Graphic Design Thesis — an experimental book that resists self-help conventions. Recipient of two 2025 RGD Student Awards Honourable Mentions: Award for Storytelling, Award for Editorial Design.",
+    challenge: "Explore alternative sources of happiness, wisdom, and solace to build a meaningful life that doesn’t require years of expensive psychotherapy. This bilingual book won’t give you answers. But it might feel like a walk to the temple in your mind from Chapter 1: Me to beyond. You don’t always know what you’re looking for, yet somehow leave feeling a little lighter. It’s a gentle invitation to reflect, feel, and carry on — You’re already enough.",
     deliverables: ["256pp book design", "Cover system", "Custom typography", "Bilingual layout (中/EN)"],
     awards: ["RGD 2025 — Storytelling (HM)", "RGD 2025 — Editorial Design (HM)"],
     images: {
@@ -51,11 +52,16 @@ const PROJECTS = [
         { src: "assets/projects/wuwei/process book.png", span: 4, label: "process book" },
         { src: "assets/projects/wuwei/bookmark.gif", span: 6, label: "bookmark design" },
         { src: "assets/projects/wuwei/Comp 1.gif", span: 6, label: "bookmark design" },
-        { src: "assets/projects/wuwei/lineup.png", span: 6, label: "Shipping box" },
-        { src: "assets/projects/wuwei/box.png", span: 6, label: "Full product line-up" },
-        { src: "assets/projects/wuwei/brand-system.png", span: 12, label: "Brand strategy: when / where / why / how" },
+        { src: "assets/projects/wuwei/thesis_book.png", span: 6, label: "Thesis book" },
+        { src: "assets/projects/wuwei/thesis_bookmarks.png", span: 6, label: "Full product line-up" },
+        { src: "assets/projects/wuwei/book the book2-08.png", span: 6, },
+        { src: "assets/projects/wuwei/book the book2-23.png", span: 6, },
+        { src: "assets/projects/wuwei/book the book2-24.png", span: 6, },
+        { src: "assets/projects/wuwei/book the book2-27.png", span: 6, },
+        { src: "assets/projects/wuwei/2025StudentAwards_stickers_HM-white.png", span: 4, },
       ]
     },
+    video: "https://www.youtube.com/watch?v=4twa7ZjuiiA",
     span: "span-5",
     aspect: "tall",
   },
@@ -105,19 +111,30 @@ const PROJECTS = [
     aspect: "square",
   },
   {
-    id: "goodday",
+    id: "dribbble",
     no: "No.06",
-    title: "Good Day!",
-    subtitle: "Mobile App",
-    year: "2024",
-    role: "Product / UI",
-    color: "#FFE873",
+    title: "dribbble client - RC advance & Hobbies",
+    subtitle: "Logo",
+    year: "2025",
+    role: "Branding",
+    color: "#ffffff",
     accent: "#3B5BDB",
-    desc: "A mood-tracking app designed around small daily wins rather than productivity. Soft, cheerful UI that lets you log a 'good thing' in under five seconds.",
-    challenge: "Make a wellness app that doesn't feel like homework.",
-    deliverables: ["Product UI", "Brand system", "Onboarding flow"],
+    desc: "A logo design for a family-run R/C hobby shop based in Markham, focused on remote-controlled cars and automotive culture. The goal was to create a simple, flexible identity that reflects the energy of the hobby while staying approachable for a local community.",
+    challenge: "I developed two distinct moodboards based on the client’s references, each framing a slightly different tone. From there, I created multiple logo variations, testing different forms, compositions, and visual weights. This allowed the client to compare directions side-by-side and make a more confident decision about what best represents their shop. Instead of a single option, the client received a small system of logo variations and a clearer sense of their brand identity. This extra step to small business. a wellness app that doesn't feel like homework.",
+    deliverables: ["Logo designs", "Brand identity"],
     span: "span-4",
     aspect: "tall",
+    images: {
+      hero: "assets/projects/dribbble/Artboard2.png",
+      gallery: [
+        { src: "assets/projects/dribbble/Artboard1.png", span: 12, label: "Logo variation" },
+        { src: "assets/projects/dribbble/reference image 1.png", span: 6, label: "Mock up" },
+        { src: "assets/projects/dribbble/og.png", span: 6, label: "Original logo design" },
+        { src: "assets/projects/dribbble/Red stickers mockup.png", span: 6, label: "Stickers" },
+        { src: "assets/projects/dribbble/Artboard2.png", span: 6, label: "main logo design" },
+
+      ]
+    },
   },
   {
     id: "fernno",
@@ -157,7 +174,7 @@ const PROJECTS = [
         { src: "assets/projects/fujii/sticker-sheet.jpg", span: 12, label: "Uncut sticker sheet — six colourways before trimming", rotate: 90 },
       ]
     },
-    span: "span-5",
+    span: "span-6",
     aspect: "tall",
   },
 ];
