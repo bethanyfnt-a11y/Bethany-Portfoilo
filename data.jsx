@@ -72,13 +72,28 @@ const PROJECTS = [
     subtitle: "Festival Poster Series & Timeline",
     year: "2024",
     role: "Poster / Information Design",
-    color: "#E8443A",
+    color: "none",
     accent: "#F2C94C",
     desc: "A poster series and timeline graphic celebrating Hong Kong's iconic Bun Festival. Pulls from temple banners, talisman type, and the chaotic joy of the bun-snatching tower.",
-    challenge: "Honour a tradition without flattening it into a tourist poster — keep the strangeness, the smoke, the speed.",
+    challenge: "The design aims to engage younger generations and a wider audience interested in Hong Kong’s cultural celebrations. By blending traditional festival elements with innovative typefaces, vibrant colours, and hand-drawn illustrations of cultural traditions.",
     deliverables: ["3-poster series", "Foldable timeline", "Type explorations"],
     span: "span-5",
     aspect: "poster",
+    images: {
+      hero: "assets/projects/TaiPing/Bethany_Fung_3posters-06.png",
+      gallery: [
+        { src: "assets/projects/TaiPing/Bethany_Fung_3posters-07.png", span: 4, label: "Poster" },
+        { src: "assets/projects/TaiPing/Bethany_Fung_3posters-06.png", span: 4, label: "Poster" },
+        { src: "assets/projects/TaiPing/Bethany_Fung_3posters-04.png", span: 4, label: "Poster" },
+        { src: "assets/projects/TaiPing/GBCTYPE3-Bethany-Fung-2023-TypeAsInfo-Process.png", span: 12, label: "Timeline" },
+        { src: "assets/projects/TaiPing/timebunfes.png.webp", span: 6 },
+        { src: "assets/projects/TaiPing/Image 2023-10-10 at 12.50 AM.jpg", span: 6},
+        { src: "assets/projects/TaiPing/gold.png", span: 4, },
+        { src: "assets/projects/TaiPing/buns tower.png", span: 4, },
+        { src: "assets/projects/TaiPing/poster mockup.png", span: 12, },
+        { src: "assets/projects/TaiPing/Sprint 2.png", span: 12, },
+      ]
+    },
   },
   {
     id: "blissful",
@@ -176,6 +191,8 @@ const PROJECTS = [
     },
     span: "span-6",
     aspect: "tall",
+
+    
   },
 ];
 

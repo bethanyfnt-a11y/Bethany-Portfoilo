@@ -238,14 +238,12 @@ function App() {
         <FoldSection id="about" title={<><em>About</em> Me</>} count="Hello!">
           <div className="about-grid">
             <div className="about-portrait">
-              <div className="ph" style={{
-                "--ph-color": "var(--bg-soft)",
-                color: "var(--ink-mute)",
-                width: "100%", height: "100%"
-              }}>
-                <span className="ph-label">PORTRAIT</span>
-              </div>
-            </div>
+  <img 
+    src="assets/about-me_Portfolio.png" 
+    alt="Bethany Fung portrait"
+    style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "16px" }}
+  />
+</div>
             <div className="about-text">
               <p>
                 Hello, I'm Bethany — a graphic designer from Hong Kong, now based in Toronto since 2022.
@@ -263,7 +261,7 @@ function App() {
               <div className="about-tags">
                 <span>Brand Identity</span><span>Editorial</span><span>Packaging</span>
                 <span>Type Design</span><span>Posters</span><span>Illustration</span>
-                <span>Bilingual 中/EN</span>
+                <span>Bilingual Cantonese/EN</span>
               </div>
             </div>
           </div>
