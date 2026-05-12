@@ -34,8 +34,8 @@ const PROJECTS = [
   {
     id: "wuwei",
     no: "No.02",
-    title: "無為",
-    subtitle: "This book won't help you",
+    title: "無為: This book won't help you",
+    subtitle: "2025 RGD Student Awards Honourable Mention in: Award for Storytelling & Award for Editorial Design",
     year: "2025",
     role: "Editorial / Thesis",
     color: "none",
@@ -77,7 +77,7 @@ const PROJECTS = [
     desc: "A poster series and timeline graphic celebrating Hong Kong's iconic Bun Festival. Pulls from temple banners, talisman type, and the chaotic joy of the bun-snatching tower.",
     challenge: "The design aims to engage younger generations and a wider audience interested in Hong Kong’s cultural celebrations. By blending traditional festival elements with innovative typefaces, vibrant colours, and hand-drawn illustrations of cultural traditions.",
     deliverables: ["3-poster series", "Foldable timeline", "Type explorations"],
-    span: "span-5",
+    span: "span-4",
     aspect: "poster",
     images: {
       hero: "assets/projects/TaiPing/Bethany_Fung_3posters-06.png",
@@ -107,7 +107,7 @@ const PROJECTS = [
     desc: "Blissful is a crochet magazine that turns a slow, tactile craft into a vibrant invitation. Built for Gen Z and millennial beginners, it pairs bold colour, playful typography, and a lively grid system to make a centuries-old hobby feel fresh — a gentle off-screen escape that nurtures mindfulness, focus, and the small joy of finishing something with your own hands.",
     challenge: "Crochet has a marketing problem: the work is beautiful, but the visual world around it can feel dated and intimidating to anyone under 40. Blissful had to rebuild that first impression. The challenge was designing a magazine loud enough to stop a Gen Z scroll, soft enough to feel like a wind-down ritual, and clear enough that a true beginner could follow a pattern from page one.",
     deliverables: ["64pp magazine", "Cover series", "Editorial system", "Pattern guides"],
-    span: "span-7",
+    span: "span-4",
     aspect: "poster",
      images: {
       hero: "assets/projects/blissful/P05.png",
@@ -132,22 +132,23 @@ const PROJECTS = [
     subtitle: "Packaging Redesign",
     year: "2024",
     role: "Packaging / Brand",
-    color: "#0E5C3A",
+    color: "none",
     accent: "#F4E29A",
-    desc: "A packaging redesign for the canned seafood staple — keeping the heritage cue of the clover, but giving the line a sharper, more contemporary shelf presence.",
+    desc: "A packaging redesign for the canned tuna staple — keeping the heritage cue of the clover, but giving the line a sharper, more contemporary shelf presence.",
     challenge: "Modernise without losing the trust shoppers feel for the original can.",
     deliverables: ["Can label system", "Variant family", "Mock retail comps"],
     span: "span-4",
     aspect: "square",
     images: {
-      hero: "assets/projects/dribbble/Artboard2.png",
+      hero: "assets/projects/cloverleaf/Small-Food-Can-1.png",
       gallery: [
-        { src: "assets/projects/dribbble/Artboard1.png", span: 12, label: "Logo variation" },
-        { src: "assets/projects/dribbble/reference image 1.png", span: 6, label: "Mock up" },
-        { src: "assets/projects/dribbble/og.png", span: 6, label: "Original logo design" },
-        { src: "assets/projects/dribbble/Red stickers mockup.png", span: 6, label: "Stickers" },
-        { src: "assets/projects/dribbble/Artboard2.png", span: 6, label: "main logo design" },
-
+        { src: "assets/projects/cloverleaf/Small-Food-Can-11.png", span: 6, label: "Dill & Lemon" },
+        { src: "assets/projects/cloverleaf/Small-Food-Can-10.png", span: 6, label: "Dill & Lemon" },
+        { src: "assets/projects/cloverleaf/Small-Food-Can-5.png", span: 6, label: "Spicy Thai Chili" },
+        { src: "assets/projects/cloverleaf/Small-Food-Can-6.png", span: 6, label: "Spicy Thai Chili" },
+        { src: "assets/projects/cloverleaf/Small-Food-Can-3.png", span: 4, label: "Lemon & Pepper" },
+        { src: "assets/projects/cloverleaf/Small-Food-Can-1.png", span: 4, label: "Lemon & Pepper" },
+        { src: "assets/projects/cloverleaf/Small-Food-Can-8.png", span: 4, label: "Lemon & Pepper" },
       ]
     },
   },
@@ -164,7 +165,7 @@ const PROJECTS = [
     challenge: "I developed two distinct moodboards based on the client’s references, each framing a slightly different tone. From there, I created multiple logo variations, testing different forms, compositions, and visual weights. This allowed the client to compare directions side-by-side and make a more confident decision about what best represents their shop. Instead of a single option, the client received a small system of logo variations and a clearer sense of their brand identity. This extra step to small business. a wellness app that doesn't feel like homework.",
     deliverables: ["Logo designs", "Brand identity"],
     span: "span-4",
-    aspect: "poster",
+    aspect: "square",
     images: {
       hero: "assets/projects/dribbble/Artboard2.png",
       gallery: [
@@ -184,13 +185,44 @@ const PROJECTS = [
     subtitle: "Branding",
     year: "2023",
     role: "Brand Identity",
-    color: "#2D3A2A",
+    color: "none",
     accent: "#A4C76E",
     desc: "Identity work for an indoor-plant studio: a wordmark with quiet personality, a botanical mark, and a tag system that grows with the brand.",
     challenge: "Build a plant brand that doesn't lean on the most-obvious leaf clichés.",
     deliverables: ["Wordmark", "Pattern system", "Tags & labels"],
-    span: "span-5",
-    aspect: "long",
+    span: "span-6",
+    aspect: "wide",
+     images: {
+      hero: "assets/projects/fernno/logo1.png",
+      gallery: [
+        { src: "assets/projects/fernno/brandmark-08.png", span: 3, },
+        { src: "assets/projects/fernno/brandmark-09.png", span: 3, },
+        { src: "assets/projects/fernno/brandmark-10.png", span: 3, },
+        { src: "assets/projects/fernno/brandmark-11.png", span: 3, },
+                { src: "assets/projects/fernno/logo1.png", span: 8, },
+        { src: "assets/projects/fernno/yellow.png", span: 1.5, },
+        { src: "assets/projects/fernno/red.png", span: 1.5, },
+        { src: "assets/projects/fernno/blue.png", span: 1.5, },
+        { src: "assets/projects/fernno/green.png", span: 1.5, },
+        { src: "assets/projects/fernno/Mailer_Box_white.png", span: 6, },
+        { src: "assets/projects/fernno/Mailer_Box_Mockup_3.png", span: 6, },
+        { src: "assets/projects/fernno/helmet.png", span: 6, },
+        { src: "assets/projects/fernno/helmet2.png", span: 6, },
+        { src: "assets/projects/fernno/CAP.png", span: 6, },
+        { src: "assets/projects/fernno/WaterBottleMockup.png", span: 6, },
+        { src: "assets/projects/fernno/Shopping Tote Bag.png", span: 4, },
+        { src: "assets/projects/fernno/Elevator Door.png", span: 8, },
+        { src: "assets/projects/fernno/insta2.png", span: 4, },
+        { src: "assets/projects/fernno/insta1.png", span: 4, },
+        { src: "assets/projects/fernno/web-mockup2.png", span: 4,},
+        { src: "assets/projects/fernno/web-mockup1.png", span: 4,},
+        { src: "assets/projects/fernno/Free-Employee-ID-Card-Holder-Mockup.png", span: 4, },
+        { src: "assets/projects/fernno/tee1.png", span: 4, },
+        { src: "assets/projects/fernno/Shop Window Mockup.png", span: 12, },
+
+
+      ]
+    },
   },
   {
     id: "fujii",
@@ -199,11 +231,11 @@ const PROJECTS = [
     subtitle: "Toronto Concert Stickers",
     year: "2025",
     role: "Illustration / Merch",
-    color: "#C7FF3D",
+    color: "none",
     accent: "#0A0A0A",
     desc: "A fan-made sticker series for Fujii Kaze's Danforth Music Hall stop on his 2025 North America Tour. Hand-drawn lettering in English and 藤井風 (Japanese kanji), wrapped with concert details, the CN Tower, a maple leaf, and a tiny flower — printed in two colourways and a holographic finish, given away for free at the show to spread the love.",
     challenge: "Translate the energy of a live Fujii Kaze set — playful, generous, a little chaotic — into a 3-inch object that fans could carry home. The lettering had to feel hand-made (not a logo lift), bilingual without one language dominating, and bold enough to work on neon yellow, glossy holo, and risograph green.",
-    deliverables: ["Hand-drawn lettering (EN + 日本語)", "Poster variants", "Holographic & matte stickers", "Free giveaway run"],
+    deliverables: ["Hand-drawn lettering (EN + Japanese)", "Poster variants", "Holographic & matte stickers", "Free giveaway run"],
     images: {
       hero: "assets/projects/fujii/poster-01.png",
       gallery: [
@@ -215,7 +247,7 @@ const PROJECTS = [
         { src: "assets/projects/fujii/sticker-sheet.jpg", span: 12, label: "Uncut sticker sheet — six colourways before trimming", rotate: 90 },
       ]
     },
-    span: "span-6",
+    span: "span-4",
     aspect: "poster",
 
     
