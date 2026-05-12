@@ -1,5 +1,5 @@
 /* global React, PROJECTS */
-const { useEffect, useState, useRef } = React;
+const { useEffect, useState, useRef, useCallback } = React;
 
 // Generate placeholder thumb art per project (since real thumbs not yet uploaded)
 function ProjectPlaceholder({ project }) {
@@ -98,10 +98,57 @@ function ProjectCard({ project, onOpen, theme }) {
     </div>);
 
 }
+
+// ---- Lightbox ----
+function Lightbox({ src, label, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  if (!src) return null;
+  return (
+    <div onClick={onClose} style={{
+      position: "fixed", inset: 0, zIndex: 9999,
+      background: "rgba(0,0,0,0.92)",
+      display: "flex", flexDirection: "column",
+      alignItems: "center", justifyContent: "center",
+      cursor: "zoom-out", padding: "40px"
+    }}>
+      <img src={src} alt={label || ""}
+        onClick={e => e.stopPropagation()}
+        style={{
+          maxWidth: "90vw", maxHeight: "85vh",
+          objectFit: "contain", borderRadius: 8,
+          boxShadow: "0 8px 60px rgba(0,0,0,0.8)"
+        }} />
+      {label && (
+        <div style={{
+          marginTop: 16, color: "#fff",
+          fontFamily: "var(--font-mono)", fontSize: 11,
+          letterSpacing: "0.18em", textTransform: "uppercase",
+          opacity: 0.7
+        }}>{label}</div>
+      )}
+      <button onClick={onClose} style={{
+        position: "fixed", top: 24, right: 32,
+        background: "none", border: "1px solid rgba(255,255,255,0.3)",
+        color: "#fff", borderRadius: 999,
+        padding: "8px 18px", cursor: "pointer",
+        fontFamily: "var(--font-mono)", fontSize: 11,
+        letterSpacing: "0.18em"
+      }}>ESC · Close</button>
+    </div>
+  );
+}
+window.Lightbox = Lightbox;
+
 window.ProjectCard = ProjectCard;
 
 // ---- Project modal ----
 function ProjectModal({ project, onClose }) {
+  const [lightbox, setLightbox] = useState(null);
   useEffect(() => {
     if (!project) return;
     const onKey = (e) => {if (e.key === "Escape") onClose();};
@@ -273,6 +320,8 @@ function ProjectModal({ project, onClose }) {
                               }}
                             />
                           : <img src={g.src} alt={g.label || ""}
+    onClick={e => { e.stopPropagation(); setLightbox({ src: g.src, label: g.label }); }}
+    style={{ display: "block", width: "100%", height: "auto", objectFit: "cover", cursor: "zoom-in" }} />
                               style={{ display: "block", width: "100%", height: "auto", objectFit: "cover" }} />
                         }
                         {g.label &&
@@ -326,6 +375,7 @@ function ProjectModal({ project, onClose }) {
           </div>
         }
       </div>
+            {lightbox && <Lightbox src={lightbox.src} label={lightbox.label} onClose={() => setLightbox(null)} />}
     </div>);
 
 }
