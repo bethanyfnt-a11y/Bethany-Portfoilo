@@ -85,7 +85,7 @@ const PROJECTS = [
         { src: "assets/projects/TaiPing/Bethany_Fung_3posters-07.png", span: 4, label: "Poster" },
         { src: "assets/projects/TaiPing/Bethany_Fung_3posters-06.png", span: 4, label: "Poster" },
         { src: "assets/projects/TaiPing/Bethany_Fung_3posters-04.png", span: 4, label: "Poster" },
-        { src: "assets/projects/TaiPing/GBCTYPE3-Bethany-Fung-2023-TypeAsInfo-Process.png", span: 12, label: "Timeline" },
+        { src: "assets/projects/TaiPing/GBCTYPE3-TypeAsInfo-Process.png", span: 12, label: "Timeline" },
         { src: "assets/projects/TaiPing/timebunfes.png.webp", span: 6 },
         { src: "assets/projects/TaiPing/Image 2023-10-10 at 12.50 AM.jpg", span: 6},
         { src: "assets/projects/TaiPing/gold.png", span: 4, },
