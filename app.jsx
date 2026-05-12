@@ -262,7 +262,7 @@ function App() {
             </div>
             <div className="about-text">
               <p>Hello, I'm Bethany — a graphic designer from Hong Kong, now based in Toronto since 2022.</p>
-              <p>I'm passionate about design that tells a story and sparks connection. Inspired by everyday moments and pop culture — especially the bold visuals of K-pop — I bring a unique eye for detail and emotional sensitivity to my work.</p>
+              <p>I'm passionate about design that tells a story and sparks connection. Inspired by everyday moments and pop culture — especially the bold visuals  — I bring a unique eye for detail and emotional sensitivity to my work.</p>
               <p>In my free time, I love discovering new cafés, exploring the city, and going to concerts. I'm excited to keep growing as a designer and turn my passion into a meaningful creative career.</p>
               <div className="about-tags">
                 <span>Brand Identity</span><span>Editorial</span><span>Packaging</span>
