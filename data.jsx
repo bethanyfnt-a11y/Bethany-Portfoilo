@@ -102,13 +102,28 @@ const PROJECTS = [
     subtitle: "Magazine",
     year: "2024",
     role: "Editorial",
-    color: "#FFD7DD",
+    color: "none",
     accent: "#FF6F91",
     desc: "Blissful is a crochet magazine that turns a slow, tactile craft into a vibrant invitation. Built for Gen Z and millennial beginners, it pairs bold colour, playful typography, and a lively grid system to make a centuries-old hobby feel fresh — a gentle off-screen escape that nurtures mindfulness, focus, and the small joy of finishing something with your own hands.",
     challenge: "Crochet has a marketing problem: the work is beautiful, but the visual world around it can feel dated and intimidating to anyone under 40. Blissful had to rebuild that first impression. The challenge was designing a magazine loud enough to stop a Gen Z scroll, soft enough to feel like a wind-down ritual, and clear enough that a true beginner could follow a pattern from page one.",
     deliverables: ["64pp magazine", "Cover series", "Editorial system", "Pattern guides"],
     span: "span-7",
-    aspect: "wide",
+    aspect: "poster",
+     images: {
+      hero: "assets/projects/blissful/P05.png",
+      gallery: [
+        { src: "assets/projects/blissful/Page 10.png", span: 12, },
+        { src: "assets/projects/blissful/Page 6.png", span: 12, },
+        { src: "assets/projects/blissful/Page 7.png", span: 12, },
+        { src: "assets/projects/blissful/Page 3.png", span: 12, },
+        { src: "assets/projects/blissful/Page 9.png", span: 12 },
+        { src: "assets/projects/blissful/Page 2.png", span: 12, },
+        { src: "assets/projects/blissful/Page 8.png", span: 12},
+        { src: "assets/projects/blissful/Page 5.png", span: 12, },
+        { src: "assets/projects/blissful/Page 1.png", span: 12, },
+        { src: "assets/projects/blissful/Page 4.png", span: 12, },
+      ]
+    },
   },
   {
     id: "cloverleaf",
@@ -124,6 +139,17 @@ const PROJECTS = [
     deliverables: ["Can label system", "Variant family", "Mock retail comps"],
     span: "span-4",
     aspect: "square",
+    images: {
+      hero: "assets/projects/dribbble/Artboard2.png",
+      gallery: [
+        { src: "assets/projects/dribbble/Artboard1.png", span: 12, label: "Logo variation" },
+        { src: "assets/projects/dribbble/reference image 1.png", span: 6, label: "Mock up" },
+        { src: "assets/projects/dribbble/og.png", span: 6, label: "Original logo design" },
+        { src: "assets/projects/dribbble/Red stickers mockup.png", span: 6, label: "Stickers" },
+        { src: "assets/projects/dribbble/Artboard2.png", span: 6, label: "main logo design" },
+
+      ]
+    },
   },
   {
     id: "dribbble",
@@ -138,7 +164,7 @@ const PROJECTS = [
     challenge: "I developed two distinct moodboards based on the client’s references, each framing a slightly different tone. From there, I created multiple logo variations, testing different forms, compositions, and visual weights. This allowed the client to compare directions side-by-side and make a more confident decision about what best represents their shop. Instead of a single option, the client received a small system of logo variations and a clearer sense of their brand identity. This extra step to small business. a wellness app that doesn't feel like homework.",
     deliverables: ["Logo designs", "Brand identity"],
     span: "span-4",
-    aspect: "tall",
+    aspect: "poster",
     images: {
       hero: "assets/projects/dribbble/Artboard2.png",
       gallery: [
@@ -190,7 +216,7 @@ const PROJECTS = [
       ]
     },
     span: "span-6",
-    aspect: "tall",
+    aspect: "poster",
 
     
   },
