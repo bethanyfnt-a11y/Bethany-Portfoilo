@@ -3,10 +3,10 @@
 const { useState, useEffect, useRef } = React;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "soundEnabled": true,
+  "soundEnabled": false,
   "trailDensity": "regular",
-  "showSakuraTrail": true,
-  "themeOverride": "dark"
+  "showSakuraTrail": false,
+  "themeOverride": "light"
 }/*EDITMODE-END*/;
 
 // ---- Fullscreen Lightbox — lives at App level, above everything ----
@@ -140,25 +140,18 @@ function FoldSection({ id, title, count, children, defaultOpen = true }) {
   );
 }
 
-function Nav({ onNav, theme, setTheme }) {
+function Nav({ onNav }) {
   return (
     <nav className="nav">
       <a className="nav-mark" href="#top" onClick={(e) => { e.preventDefault(); onNav("top"); }} data-hover>
-        <span className="star"></span>Bethany Fung
+        Bethany Fung
       </a>
       <div className="nav-links">
         <a href="#work" onClick={(e) => { e.preventDefault(); onNav("work"); }} data-hover>Work</a>
         <a href="#about" onClick={(e) => { e.preventDefault(); onNav("about"); }} data-hover>About</a>
         <a href="#contact" onClick={(e) => { e.preventDefault(); onNav("contact"); }} data-hover>Contact</a>
       </div>
-      <div className="nav-tools">
-        <button className="tool-btn" data-hover onClick={() => setTheme(t => t === "dark" ? "light" : "dark")} aria-label="toggle theme">
-          {theme === "dark"
-            ? <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.6" y1="4.6" x2="6.7" y2="6.7"/><line x1="17.3" y1="17.3" x2="19.4" y2="19.4"/><line x1="4.6" y1="19.4" x2="6.7" y2="17.3"/><line x1="17.3" y1="6.7" x2="19.4" y2="4.6"/></g></svg>
-            : <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-          }
-        </button>
-      </div>
+      <div className="nav-role">Graphic Designer · Toronto</div>
     </nav>
   );
 }
@@ -167,10 +160,10 @@ function Loader({ done }) {
   return (
     <div id="loader" className={done ? "gone" : ""}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <img src="assets/icon.png" alt="" className="loader-mark" style={{ filter: "hue-rotate(15deg) saturate(1.4) brightness(0.5)" }} />
+        <img src="assets/icon.png" alt="" className="loader-mark" />
         <div className="loader-bar"></div>
         <div style={{ marginTop: 18, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--ink-mute)" }}>
-          A garden of ideas, blooming…
+          Loading portfolio…
         </div>
       </div>
     </div>
@@ -228,19 +221,19 @@ function App() {
     <>
       <Loader done={loaded} />
       <CursorGarden theme={theme} playNote={tweaks.showSakuraTrail ? playNote : () => {}} trailDensity={tweaks.trailDensity} enabled={tweaks.showSakuraTrail} />
-      <Nav onNav={onNav} theme={theme} setTheme={setTheme} />
+      <Nav onNav={onNav} />
 
       <main id="top">
         <section className="hero">
           <HeroBackground theme={theme} />
           <div className="hero-inner">
-            <div className="hero-eyebrow">Portfolio · 2022—2025</div>
-            <div className="hero-name"><img src="assets/name.png" alt="Bethany Fung" /></div>
-            <p className="hero-tag">Graphic designer telling stories through<br/>brand, editorial &amp; experimental type.</p>
+            <div className="hero-eyebrow">Hong Kong–born · Toronto-based</div>
+            <div className="hero-name">Bethany Fung</div>
+            <p className="hero-tag">Ideas, not decoration.<br/>Concept-led design across branding, editorial &amp; packaging.</p>
             <div className="hero-meta">
               <div>Based in<span>Toronto, ON</span></div>
               <div>From<span>Hong Kong</span></div>
-              <div>Available<span>Freelance / FT 2026</span></div>
+              <div>Focus<span>Brand · Editorial · Packaging</span></div>
             </div>
           </div>
           <div className="scroll-hint"><span>Scroll</span><span className="line"></span></div>
@@ -261,8 +254,8 @@ function App() {
                 style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "16px" }} />
             </div>
             <div className="about-text">
-              <p>Hello, I'm Bethany — a graphic designer from Hong Kong, now based in Toronto since 2022.</p>
-              <p>I'm passionate about design that tells a story and sparks connection. Inspired by everyday moments and pop culture — especially the bold visuals  — I bring a unique eye for detail and emotional sensitivity to my work.</p>
+              <p>Hello, I’m Bethany — a Hong Kong–born graphic designer based in Toronto.</p>
+              <p>I care about ideas, not decoration. My work is driven by concept, storytelling and sharp attention to detail — creating visuals that have something to say and a reason to exist.</p>
               <p>In my free time, I love discovering new cafés, exploring the city, and going to concerts. I'm excited to keep growing as a designer and turn my passion into a meaningful creative career.</p>
               <div className="about-tags">
                 <span>Brand Identity</span><span>Editorial</span><span>Packaging</span>
