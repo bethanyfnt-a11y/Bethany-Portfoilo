@@ -93,6 +93,21 @@
 .project-modal-note{font-size:12px;opacity:.8;margin:28px 0 0}
 @media(max-width:700px){.work-section .work-grid{grid-template-columns:1fr}.real-card .card-visual{height:320px}.project-dialog{padding:0}.project-dialog-inner{min-height:100dvh}.project-gallery{grid-template-columns:1fr}.project-gallery a:first-child{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){.real-card .card-visual img{transition:none}}
+
+/* Project image zoom viewer */
+.project-gallery a{position:relative;cursor:zoom-in}
+.project-gallery a:not(.image-fallback)::after{content:'⌕';position:absolute;right:14px;bottom:14px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.78);color:#fff;font-size:30px;line-height:1;pointer-events:none;transition:transform .2s ease}
+.project-gallery a:not(.image-fallback):hover::after{transform:scale(1.1)}
+.portfolio-lightbox{position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;padding:72px 65px 55px}
+.portfolio-lightbox.open{display:flex}
+.portfolio-lightbox img{max-width:100%;max-height:calc(100dvh - 145px);width:auto;height:auto;object-fit:contain}
+.portfolio-lightbox button{position:absolute;border:1px solid rgba(255,255,255,.5);background:#111;color:#fff;cursor:pointer;width:45px;height:45px;border-radius:50%;font-size:26px;display:grid;place-items:center}
+.portfolio-lightbox button:focus-visible{outline:3px solid #ff6b40;outline-offset:3px}
+.portfolio-lightbox .zoom-close{top:18px;right:22px}
+.portfolio-lightbox .zoom-prev{left:12px;top:50%;transform:translateY(-50%)}
+.portfolio-lightbox .zoom-next{right:12px;top:50%;transform:translateY(-50%)}
+.portfolio-lightbox .zoom-counter{position:absolute;bottom:15px;color:white;font:12px Arial,sans-serif;letter-spacing:.12em}
+@media(max-width:650px){.portfolio-lightbox{padding:72px 42px 48px}.portfolio-lightbox button{width:36px;height:36px;font-size:22px}.portfolio-lightbox .zoom-prev{left:3px}.portfolio-lightbox .zoom-next{right:3px}}
 </style></head><body><header><a href="#top">BETHANY FUNG <span aria-hidden="true">✳</span></a><nav class="nav"><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav></header><main><section class="hero" id="top"><div class="hero-intro"><div class="hero-caption">Hong Kong–born graphic designer based in Toronto.</div><div class="hero-disciplines">Branding · Editorial · Packaging</div></div><div class="hero-spacer" aria-hidden="true"></div><h1 class="hero-wordmark">Bethany</h1><div class="hero-bottom">
 <div class="hero-play"><button type="button" id="stamp-toggle" class="stamp-toggle" aria-pressed="false">✳ MAKE A MARK <span id="stamp-status">OFF</span></button><button type="button" class="stamp-clear" id="stamp-clear" hidden>CLEAR</button></div>
 <a class="arrow" href="#about" aria-label="Scroll to about">↓</a>
@@ -153,8 +168,21 @@ const projects={"wuwei":{"title":"This Book Won’t Help You","role":"Editorial 
 const dialog=document.getElementById('project-dialog');
 const close=dialog.querySelector('.project-dialog-close');
 let previousFocus=null;
+// In-page full-screen zoom for all project gallery images.
+const zoom=document.createElement('div');zoom.className='portfolio-lightbox';zoom.setAttribute('role','dialog');zoom.setAttribute('aria-modal','true');zoom.setAttribute('aria-label','Enlarged project image');zoom.innerHTML='<button type="button" class="zoom-close" aria-label="Close enlarged image">×</button><button type="button" class="zoom-prev" aria-label="Previous image">‹</button><img alt=""><button type="button" class="zoom-next" aria-label="Next image">›</button><span class="zoom-counter" aria-live="polite"></span>';document.body.appendChild(zoom);
+const zoomImg=zoom.querySelector('img'),zoomCounter=zoom.querySelector('.zoom-counter');
+let zoomImages=[],zoomIndex=0,zoomReturnFocus=null;
+function showZoom(i){if(!zoomImages.length)return;zoomIndex=(i+zoomImages.length)%zoomImages.length;zoomImg.src=zoomImages[zoomIndex];zoomImg.alt='Project image '+(zoomIndex+1)+' of '+zoomImages.length;zoomCounter.textContent=(zoomIndex+1)+' / '+zoomImages.length;}
+function launchZoom(images,index,trigger){zoomImages=images;zoomReturnFocus=trigger;showZoom(index);zoom.classList.add('open');zoom.querySelector('.zoom-close').focus();}
+function closeZoom(){if(!zoom.classList.contains('open'))return;zoom.classList.remove('open');zoomImg.removeAttribute('src');if(zoomReturnFocus&&zoomReturnFocus.isConnected)zoomReturnFocus.focus();}
+zoom.querySelector('.zoom-close').addEventListener('click',closeZoom);
+zoom.querySelector('.zoom-prev').addEventListener('click',()=>showZoom(zoomIndex-1));
+zoom.querySelector('.zoom-next').addEventListener('click',()=>showZoom(zoomIndex+1));
+zoom.addEventListener('click',e=>{if(e.target===zoom)closeZoom()});
+document.addEventListener('keydown',e=>{if(!zoom.classList.contains('open'))return;if(e.key==='Escape'){e.stopImmediatePropagation();closeZoom()}else if(e.key==='ArrowLeft'){e.preventDefault();showZoom(zoomIndex-1)}else if(e.key==='ArrowRight'){e.preventDefault();showZoom(zoomIndex+1)}} ,true);
+
 function shut(){dialog.classList.remove('open');dialog.setAttribute('aria-hidden','true');document.body.style.overflow='';if(previousFocus)previousFocus.focus()}
-function open(id){const p=projects[id];if(!p)return;previousFocus=document.activeElement;document.getElementById('modal-title').textContent=p.title;document.getElementById('modal-role').textContent=p.role+' · '+p.year;document.getElementById('modal-description').textContent=p.desc;const gallery=document.getElementById('project-gallery');gallery.replaceChildren();p.images.forEach((url,i)=>{const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label','Open '+p.title+' image '+(i+1));const img=document.createElement('img');img.loading=i<2?'eager':'lazy';img.src=url;img.alt=p.title+' — image '+(i+1);img.onerror=()=>{img.remove();link.textContent='IMAGE UNAVAILABLE — OPEN ORIGINAL ↗';link.classList.add('image-fallback')};link.appendChild(img);gallery.appendChild(link)});dialog.classList.add('open');dialog.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';close.focus()}
+function open(id){const p=projects[id];if(!p)return;previousFocus=document.activeElement;document.getElementById('modal-title').textContent=p.title;document.getElementById('modal-role').textContent=p.role+' · '+p.year;document.getElementById('modal-description').textContent=p.desc;const gallery=document.getElementById('project-gallery');gallery.replaceChildren();p.images.forEach((url,i)=>{const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label','Open '+p.title+' image '+(i+1));const img=document.createElement('img');img.loading=i<2?'eager':'lazy';img.src=url;img.alt=p.title+' — image '+(i+1);img.onerror=()=>{img.remove();link.textContent='IMAGE UNAVAILABLE — OPEN ORIGINAL ↗';link.classList.add('image-fallback')};link.appendChild(img);link.addEventListener('click',event=>{event.preventDefault();launchZoom(p.images,i,link)});gallery.appendChild(link)});dialog.classList.add('open');dialog.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';close.focus()}
 document.querySelectorAll('.real-card').forEach(card=>card.addEventListener('click',()=>open(card.dataset.project)));
 close.addEventListener('click',shut);dialog.addEventListener('click',e=>{if(e.target===dialog)shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dialog.classList.contains('open'))shut()});
 })();
