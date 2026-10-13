@@ -150,6 +150,11 @@ const source='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAYAAACLz2ct
 
 const markColors=['#271B20','#F5E8D0','#D7F279','#8E9CC7','#FFB4B0','#F5C84C','#694B75'];
 const markSources={};
+// Each seven consecutive impressions includes every approved colour exactly once.
+let markBag=[];
+function nextMarkColor(){if(!markBag.length){markBag=[...markColors];for(let i=markBag.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[markBag[i],markBag[j]]=[markBag[j],markBag[i]]}}return markBag.pop()}
+let resolveStampArtwork;
+const stampArtworkReady=new Promise(resolve=>{resolveStampArtwork=resolve});
 const baseStamp=new Image();
 baseStamp.onload=()=>{
  const canvas=document.createElement('canvas');canvas.width=baseStamp.naturalWidth;canvas.height=baseStamp.naturalHeight;
@@ -168,11 +173,12 @@ baseStamp.onload=()=>{
   ctx.putImageData(imageData,0,0);
   markSources[hex]=canvas.toDataURL('image/png');
  });
+ resolveStampArtwork();
 };
 baseStamp.src=source;
 let active=false;
 let stampCount=0;
-const reset=()=>{layer.replaceChildren();stampCount=0;clear.hidden=true;};
+const reset=()=>{layer.replaceChildren();stampCount=0;markBag=[];clear.hidden=true;};
 const setActive=(on)=>{
  active=on;hero.classList.toggle('is-stamping',on);toggle.setAttribute('aria-pressed',String(on));status.textContent=on?'ON':'OFF';hint.hidden=!on;
 };
@@ -187,8 +193,12 @@ layer.addEventListener('pointerdown',e=>{
  const elem=document.createElement('img');elem.src=source;elem.alt='';elem.draggable=false;elem.className='stamp-instance';
  elem.style.left=posX+'%';elem.style.top=posY+'%';
  elem.style.setProperty('--angle',((stampCount*43)%43-21+(stampCount*17)%37)+'deg');
- const chosenColor=markColors[Math.floor(Math.random()*markColors.length)];
- elem.src=markSources[chosenColor]||source;
+ const chosenColor=nextMarkColor();
+ elem.dataset.markColor=chosenColor;
+ elem.title=chosenColor+' · Drag to move · Double-click to remove';
+ // Wait for the exact-colour artwork; never fall back to the original orange stamp.
+ if(markSources[chosenColor])elem.src=markSources[chosenColor];
+ else {elem.style.visibility='hidden';stampArtworkReady.then(()=>{if(elem.isConnected){elem.src=markSources[chosenColor];elem.style.visibility='visible'}});}
  elem.title='Drag me. Double-click to remove.';
  elem.addEventListener('dblclick',()=>{elem.remove();stampCount--;clear.hidden=stampCount===0;});
  let dragging=false,offsetX=0,offsetY=0;
